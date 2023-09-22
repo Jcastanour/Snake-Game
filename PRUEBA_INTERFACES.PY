@@ -80,8 +80,8 @@ while True:
     if cuerpo[-1] == manzanacoor:
         cuerpo.append([cuerpo[-1][0] + direccion[0],cuerpo[-1][1] + direccion[1]])
         while True:
-            mx = randint(0,13) * 50
-            my = randint(0,13) * 50
+            mx = randint(0,12) * 50
+            my = randint(0,12) * 50
             if [mx,my] not in cuerpo:
                 manzanacoor = [mx,my]
                 break
