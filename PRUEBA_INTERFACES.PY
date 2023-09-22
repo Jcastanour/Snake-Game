@@ -4,7 +4,13 @@ from random import randint
 
 #Cuando se ejecute una accion que cause el final del juego
 def gameover():
-    ventana.blit(avisogameover,(alto//2,ancho//2))
+    rectangulo_avisogameover = avisogameover.get_rect()
+
+    # Centrar el rectángulo en la ventana
+    rectangulo_avisogameover.center = (ancho // 2, alto // 2)
+
+    # Dibujar la imagen en la ventana
+    ventana.blit(avisogameover, rectangulo_avisogameover)
     pygame.display.flip()
     pygame.time.delay(1000)
     pygame.quit()
@@ -118,6 +124,7 @@ while True:
     if cuerpo[-1] == manzanacoor:     
         cuerpo.append([cuerpo[-1][0] + direccion[0],cuerpo[-1][1] + direccion[1]])
         velocidad -= 8
+        velocidad -= 5
         pygame.time.set_timer(actualizacionpantalla,velocidad)
         posicionarManzana()
         movimientos=0
