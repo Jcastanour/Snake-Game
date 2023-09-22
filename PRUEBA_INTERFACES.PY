@@ -117,7 +117,7 @@ while True:
         
     if cuerpo[-1] == manzanacoor:     
         cuerpo.append([cuerpo[-1][0] + direccion[0],cuerpo[-1][1] + direccion[1]])
-        velocidad -= 1
+        velocidad -= 8
         pygame.time.set_timer(actualizacionpantalla,velocidad)
         posicionarManzana()
         movimientos=0
