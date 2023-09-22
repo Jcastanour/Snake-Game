@@ -11,7 +11,7 @@ alto = 650
 ventana = pygame.display.set_mode((ancho, alto))
 
 # Colocarle titulo a la ventana:
-pygame.display.set_caption("Ventana de pruebas")
+pygame.display.set_caption("EDDSnake")
 
 # Una ventana de pygame se comporta como una matriz, asi q se pueden
 # usar las coordenadas para viajar por ellas.
@@ -42,12 +42,20 @@ cuerpo = [[200,300],[250,300],[300,300]]
 direccion = [0,-50]
 
 actualizacionpantalla = pygame.USEREVENT
-pygame.time.set_timer(actualizacionpantalla,120)
+pygame.time.set_timer(actualizacionpantalla,100)
 clock = pygame.time.Clock()
-mx,my = 550,150
-manzanacoor = [mx,my]
 
+
+#Posiciona la manzana en una coordenada aleatoria, diferente a la posicion del snake
 while True:
+    mx = randint(0,12) * 50
+    my = randint(0,12) * 50
+    if [mx,my] not in cuerpo:
+        manzanacoor = [mx,my]
+        break
+
+
+while True: 
     
     for evento in pygame.event.get():
         # Si se cierra el juego con la x, terminar el juego
@@ -59,15 +67,19 @@ while True:
             cuerpo.append([cuerpo[-1][0] + direccion[0], cuerpo[-1][1] + direccion[1]])
             cuerpo.pop(0)
         if evento.type == pygame.KEYDOWN:
+            #Para cuando se mueve la flecha hacia arriba
             if evento.key == pygame.K_UP and direccion[1] != 50:
                 direccion = [0,-50]
                 cabeza = cabezaarriba
+            #Para cuando se mueve la flecha hacia abajo
             if evento.key == pygame.K_DOWN and direccion[1] != -50:
                 direccion = [0,50]
                 cabeza = cabezaabajo
+            #Para cuando se mueve la flecha hacia la izquierda
             if evento.key == pygame.K_LEFT and direccion[0] != 50:
                 direccion = [-50,0]
                 cabeza = cabezaizq
+            #Para cuando se mueve la flecha hacia la derecha
             if evento.key == pygame.K_RIGHT and direccion[0] != -50:
                 direccion = [50,0]
                 cabeza = cabezadrc
@@ -77,7 +89,7 @@ while True:
     ventana.blit(fondo,(0, 0))
     ventana.blit(manzana,manzanacoor)    
 
-    if cuerpo[-1] == manzanacoor:
+    if cuerpo[-1] == manzanacoor:     
         cuerpo.append([cuerpo[-1][0] + direccion[0],cuerpo[-1][1] + direccion[1]])
         while True:
             mx = randint(0,12) * 50
@@ -86,7 +98,7 @@ while True:
                 manzanacoor = [mx,my]
                 break
 
-    for i in range(len(cuerpo)):
+    for i in range(len(cuerpo)-1):
         pygame.draw.rect(ventana,color_x,(cuerpo[i][0], cuerpo[i][1],50,50)) 
 
     ventana.blit(cabeza,cuerpo[-1])
