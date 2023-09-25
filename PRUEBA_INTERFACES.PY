@@ -10,7 +10,7 @@ def gameover():
     rectangulo_avisogameover.center = (ancho // 2, alto // 2)
 
     # Dibujar la imagen en la ventana
-    ventana.blit(avisogameover, rectangulo_avisogameover)
+    ventana.blit(tablerogameover, (0,0))
     pygame.display.flip()
     pygame.time.delay(1000)
     pygame.quit()
@@ -28,7 +28,6 @@ def posicionarManzana():
             manzanacoor = [mx,my]
             break
 
-
 # Comando necesario antes de usar cualquier metodo de pygame
 pygame.init()
 
@@ -40,19 +39,18 @@ ventana = pygame.display.set_mode((ancho, alto))
 # Colocarle titulo a la ventana:
 pygame.display.set_caption("EDDSnake")
 
-
 color_azul = (12,103,232)
 
-
 #Imagenes:
+#cuerpo = pygame.image.load("cuerpo.png")
 manzana = pygame.image.load("Manzana.png")
 cabezaarriba = pygame.image.load("cabeza.png")
 cabezaabajo = pygame.image.load("cabeza_abj.png")
 cabezadrc = pygame.image.load("cabeza_drc.png")
 cabezaizq = pygame.image.load("cabeza_izq.png")
-fondo = pygame.image.load("TABLER SNAKE.png")
-#cuerpo = pygame.image.load("cuerpo.png")
+fondo = pygame.image.load("TABLERO2.0.png")
 avisogameover = pygame.image.load("Gam.png")
+tablerogameover = pygame.image.load("FONDOgameover.png")
 
 cabeza = cabezaarriba
 
@@ -60,7 +58,7 @@ cuerpo = [[200,300],[250,300],[300,300]]
 direccion = [0,-50]  
 
 actualizacionpantalla = pygame.USEREVENT
-velocidad = 110
+velocidad = 1100
 pygame.time.set_timer(actualizacionpantalla,velocidad)
 clock = pygame.time.Clock()  
 
@@ -122,12 +120,12 @@ while True:
         movimientos=0
         
     if cuerpo[-1] == manzanacoor:     
-        cuerpo.append([cuerpo[-1][0] + direccion[0],cuerpo[-1][1] + direccion[1]])
-        velocidad -= 8
-        velocidad -= 5
-        pygame.time.set_timer(actualizacionpantalla,velocidad)
+        cuerpo.append([cuerpo[0][0] + direccion[0],cuerpo[0][1] + direccion[1]])
+        if velocidad >= 95:
+            velocidad -= 3
+            pygame.time.set_timer(actualizacionpantalla,velocidad)
         posicionarManzana()
-        movimientos=0
+        movimientos=0    
         
         
     # Dibuja el cuerpo con rectangulos con las coordenadas de la lista cuerpo
