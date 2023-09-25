@@ -120,7 +120,7 @@ while True:
         movimientos=0
         
     if cuerpo[-1] == manzanacoor:     
-        cuerpo.append([cuerpo[0][0] + direccion[0],cuerpo[0][1] + direccion[1]])
+        cuerpo.insert(0,[cuerpo[0][0] - direccion[0],cuerpo[0][1] - direccion[1]])
         if velocidad >= 95:
             velocidad -= 3
             pygame.time.set_timer(actualizacionpantalla,velocidad)
