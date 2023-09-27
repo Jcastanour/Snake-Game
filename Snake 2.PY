@@ -1,13 +1,13 @@
 import pygame
-import sys
+import sys 
 from random import randint
 
 #Cuando se ejecute una accion que cause el final del juego
 def gameover():
     # Dibujar la imagen en la ventana
     ventana.blit(tablerogameover, (0,0))
-    pygame.display.flip()
-    pygame.time.delay(1000)
+    pygame.display.flip() #funciona igual que el .update()
+    pygame.time.delay(2000)
     pygame.quit()
     sys.exit()
 
@@ -29,7 +29,9 @@ pygame.init()
 ancho = 650
 alto = 650
 ventana = pygame.display.set_mode((ancho, alto))
-color_azul = (12,103,232)
+#color_azul = (255,0,0)
+color_azul = (255,153,204)
+#color_azul = (12,103,232)
 
 # Colocarle titulo a la ventana:
 pygame.display.set_caption("EDDSnake")
@@ -44,8 +46,10 @@ fondo = pygame.image.load("TABLERO2.0.png")
 tablerogameover = pygame.image.load("FONDOgameover.png")
 cabeza = cabezaarriba
 
-cuerpo = [[200,300],[250,300],[300,300]]
+#cuerpo cuerpo cabeza (cabeza es siempre el [-1])
+cuerpo = [[300,400],[300,350],[300,300]]
 direccion = [0,-50]  
+
 
 clock = pygame.time.Clock() 
 speed = 11
@@ -55,7 +59,7 @@ posicionarManzana()
 movimientos = 0
 
 while True: 
-    
+                    
     for evento in pygame.event.get():
         # Si se cierra el juego con la x, terminar el juego
         if evento.type == pygame.QUIT:
@@ -96,11 +100,11 @@ while True:
             
 
     #Creacion de ventana
+
     ventana.blit(fondo,(0, 0))
-    
     #Dibuja manzana
     ventana.blit(manzana,manzanacoor)
-
+    
     #MOVIMIENTO SERPIENTES
     cuerpo.append([cuerpo[-1][0] + direccion[0], cuerpo[-1][1] + direccion[1]])
     cuerpo.pop(0)
@@ -117,12 +121,13 @@ while True:
     if movimientos == 10:
         posicionarManzana()
         movimientos=0
-    
+
+
     #Comer la manzana
     if cuerpo[-1] == manzanacoor:     
         cuerpo.insert(0,[cuerpo[0][0] - direccion[0],cuerpo[0][1] - direccion[1]])
-        if speed < 13:
-            speed += 0.5
+        if speed < 12.6:
+            speed += 0.2
         posicionarManzana()
         movimientos=0    
         
