@@ -29,6 +29,7 @@ pygame.init()
 ancho = 650
 alto = 650
 ventana = pygame.display.set_mode((ancho, alto))
+
 #color_azul = (255,0,0)
 color_azul = (255,153,204)
 #color_azul = (12,103,232)
@@ -50,13 +51,14 @@ cabeza = cabezaarriba
 cuerpo = [[300,400],[300,350],[300,300]]
 direccion = [0,-50]  
 
-
 clock = pygame.time.Clock() 
 speed = 11
 
 posicionarManzana()
 
 movimientos = 0
+aparecemanzana = True
+salirmanzana = None
 
 while True: 
                     
@@ -98,12 +100,13 @@ while True:
                 direccion = [50,0]
                 cabeza = cabezadrc
             
-
+    
     #Creacion de ventana
-
+    
     ventana.blit(fondo,(0, 0))
     #Dibuja manzana
-    ventana.blit(manzana,manzanacoor)
+    if aparecemanzana:
+        ventana.blit(manzana,manzanacoor)
     
     #MOVIMIENTO SERPIENTES
     cuerpo.append([cuerpo[-1][0] + direccion[0], cuerpo[-1][1] + direccion[1]])
@@ -118,9 +121,9 @@ while True:
 
 
     #Si no se come manzana en 10 movimientos se cambia de lugar
-    if movimientos == 10:
-        posicionarManzana()
-        movimientos=0
+    # if movimientos == 10:
+    #     posicionarManzana()
+    #     movimientos=0
 
 
     #Comer la manzana
@@ -128,9 +131,17 @@ while True:
         cuerpo.insert(0,[cuerpo[0][0] - direccion[0],cuerpo[0][1] - direccion[1]])
         if speed < 12.6:
             speed += 0.2
-        posicionarManzana()
+        salirmanzana = randint(1,10)
+        aparecemanzana = False
         movimientos=0    
+
+    print(movimientos,salirmanzana)   
+    if movimientos == salirmanzana:
+        posicionarManzana()
+        aparecemanzana = True
         
+    
+
     #Colisiones
     if cuerpo[-1][0] < 0 or cuerpo[-1][0] >= ancho:
         gameover()
