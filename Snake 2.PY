@@ -121,10 +121,10 @@ while True:
 
 
     #Si no se come manzana en 10 movimientos se cambia de lugar
-    if movimientos == 10:
+    '''if movimientos == 10:
         posicionarManzana()
         aparecemanzana = True
-        movimientos=0
+        movimientos=0'''
 
 
     #Comer la manzana
