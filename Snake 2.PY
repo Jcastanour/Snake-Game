@@ -119,14 +119,6 @@ while True:
     # Pone imagen de la caebza en la ventana, en las coordenadas del ultimo
     ventana.blit(cabeza,cuerpo[-1])
 
-
-    #Si no se come manzana en 10 movimientos se cambia de lugar
-    '''if movimientos == 10:
-        posicionarManzana()
-        aparecemanzana = True
-        movimientos=0'''
-
-
     #Comer la manzana
     if cuerpo[-1] == manzanacoor:     
         cuerpo.insert(0,[cuerpo[0][0] - direccion[0],cuerpo[0][1] - direccion[1]])
