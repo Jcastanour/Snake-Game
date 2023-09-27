@@ -138,6 +138,7 @@ while True:
         movimientos=0
 
     if movimientos == salirmanzana:
+        movimientos=0
         aparecemanzana = True
         
     #Colisiones
