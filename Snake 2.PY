@@ -136,10 +136,15 @@ while True:
         salirmanzana = randint(0,10)
         aparecemanzana = False
         movimientos=0
+    
 
     if movimientos == salirmanzana:
         movimientos=0
         aparecemanzana = True
+    elif movimientos == 10:
+        posicionarManzana()
+        aparecemanzana = True
+        movimientos=0
         
     #Colisiones
     if cuerpo[-1][0] < 0 or cuerpo[-1][0] >= ancho:
