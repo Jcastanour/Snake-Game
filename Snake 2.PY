@@ -57,6 +57,8 @@ speed = 11
 posicionarManzana()
 
 movimientos = 0
+aparecemanzana = True
+salirmanzana = None
 
 while True: 
                     
@@ -103,7 +105,8 @@ while True:
 
     ventana.blit(fondo,(0, 0))
     #Dibuja manzana
-    ventana.blit(manzana,manzanacoor)
+    if aparecemanzana:
+        ventana.blit(manzana,manzanacoor)
     
     #MOVIMIENTO SERPIENTES
     cuerpo.append([cuerpo[-1][0] + direccion[0], cuerpo[-1][1] + direccion[1]])
@@ -120,6 +123,7 @@ while True:
     #Si no se come manzana en 10 movimientos se cambia de lugar
     if movimientos == 10:
         posicionarManzana()
+        aparecemanzana = True
         movimientos=0
 
 
@@ -129,7 +133,12 @@ while True:
         if speed < 12.6:
             speed += 0.2
         posicionarManzana()
-        movimientos=0    
+        salirmanzana = randint(0,10)
+        aparecemanzana = False
+        movimientos=0
+
+    if movimientos == salirmanzana:
+        aparecemanzana = True
         
     #Colisiones
     if cuerpo[-1][0] < 0 or cuerpo[-1][0] >= ancho:
