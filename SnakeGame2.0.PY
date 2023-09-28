@@ -50,7 +50,6 @@ cabeza = cabezaarriba
 cuerpo = [[300,400],[300,350],[300,300]]
 direccion = [0,-50]  
 
-
 clock = pygame.time.Clock() 
 speed = 11
 
@@ -100,14 +99,14 @@ while True:
                 cabeza = cabezadrc
             
 
-    #Creacion de ventana
-
+    #Dibuja fondo
     ventana.blit(fondo,(0, 0))
+
     #Dibuja manzana
     if aparecemanzana:
         ventana.blit(manzana,manzanacoor)
     
-    #MOVIMIENTO SERPIENTES
+    #Movimiento serpiente cuerpo = [[300,400],[300,350],[300,300]]
     cuerpo.append([cuerpo[-1][0] + direccion[0], cuerpo[-1][1] + direccion[1]])
     cuerpo.pop(0)
     movimientos += 1
@@ -129,15 +128,12 @@ while True:
         aparecemanzana = False
         movimientos=0
     
+    #Condicional para verificar si ya el cuerpo se movio la cantidad random para que aparezca la manzana
     if movimientos == salirmanzana:
         movimientos=0
         aparecemanzana = True
-    # elif movimientos == 10:
-    #     posicionarManzana()
-    #     aparecemanzana = True
-    #     movimientos=0
 
-    #Colisiones
+    #Colisiones paredes
     if cuerpo[-1][0] < 0 or cuerpo[-1][0] >= ancho:
         gameover()
         
@@ -148,7 +144,7 @@ while True:
     for parte in cuerpo[:-1]:
         if parte == cuerpo[-1]:
             gameover()
-
+            
     # Se actualiza la imagen de la ventana
     pygame.display.flip()
     clock.tick(speed)

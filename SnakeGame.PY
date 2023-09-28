@@ -100,10 +100,9 @@ while True:
                 direccion = [50,0]
                 cabeza = cabezadrc
             
-
-    #Creacion de ventana
-
+    #Dibujar fondo
     ventana.blit(fondo,(0, 0))
+
     #Dibuja manzana
     if aparecemanzana:
         ventana.blit(manzana,manzanacoor)
@@ -129,16 +128,12 @@ while True:
         aparecemanzana = False
         movimientos=0
     
-
+    #Condicional para verificar si ya el cuerpo se movio la cantidad random para que aparezca la manzana
     if movimientos == salirmanzana:
         movimientos=0
         aparecemanzana = True
-    # elif movimientos == 10:
-    #     posicionarManzana()
-    #     aparecemanzana = True
-    #     movimientos=0
         
-    #Colisiones
+    #Colisiones paredes
     if cuerpo[-1][0] < 0 or cuerpo[-1][0] >= ancho:
         gameover()
         
