@@ -20,6 +20,7 @@ Partida en juego
 ![image](https://github.com/Jcastanour/Snake-Game/assets/125745152/34070846-d112-4328-8859-5e8cb5904e66)
 
 Game over
+
 ![FONDOgameover](https://github.com/Jcastanour/Snake-Game/assets/125745152/65057eb8-fbce-483a-b380-bcb17555f5f8)
 
 
