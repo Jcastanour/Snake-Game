@@ -29,9 +29,9 @@ pygame.init()
 ancho = 650
 alto = 650
 ventana = pygame.display.set_mode((ancho, alto))
-#color_azul = (255,0,0)
-color_azul = (255,153,204)
-#color_azul = (12,103,232)
+
+Color_rosa = (255,153,204)
+#Color_azul = (12,103,232)
 
 # Colocarle titulo a la ventana:
 pygame.display.set_caption("EDDSnake")
@@ -114,7 +114,7 @@ while True:
 
     # Dibuja el cuerpo con rectangulos con las coordenadas de la lista cuerpo
     for i in range(len(cuerpo)-1):
-        pygame.draw.rect(ventana,color_azul,(cuerpo[i][0], cuerpo[i][1],50,50)) 
+        pygame.draw.rect(ventana,Color_rosa,(cuerpo[i][0], cuerpo[i][1],50,50)) 
 
     # Pone imagen de la caebza en la ventana, en las coordenadas del ultimo
     ventana.blit(cabeza,cuerpo[-1])
