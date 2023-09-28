@@ -15,4 +15,7 @@ Tablero
 
 ![TABLERO2 0](https://github.com/Jcastanour/Snake-Game/assets/125745152/5dde6601-a1cf-42d9-8a85-14831db70105)
 
+Partida en juego
+
+![image](https://github.com/Jcastanour/Snake-Game/assets/125745152/34070846-d112-4328-8859-5e8cb5904e66)
 
