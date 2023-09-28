@@ -129,7 +129,6 @@ while True:
         aparecemanzana = False
         movimientos=0
     
-    
     if movimientos == salirmanzana:
         movimientos=0
         aparecemanzana = True
@@ -138,7 +137,6 @@ while True:
     #     aparecemanzana = True
     #     movimientos=0
 
-    print(movimientos)    
     #Colisiones
     if cuerpo[-1][0] < 0 or cuerpo[-1][0] >= ancho:
         gameover()
