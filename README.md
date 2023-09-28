@@ -1,7 +1,9 @@
 # Snake-Game - Equipo 7 
 
-Existen 2 ejecutables
-Snake 1. los movimientos se cuentan cada que se presiona una tecla
+Existen 2 ejecutables.
+
+Snake 1. los movimientos se cuentan cada que se presiona una tecla.
+
 Snake 2. Los movimientos se cuentan cada que el cuerpo avanza un cuadrado.
 
 La manzana sale aleatoria, nunca encima del cuerpo de la serpiente.
