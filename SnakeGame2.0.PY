@@ -69,8 +69,7 @@ while True:
             sys.exit()    
             
         if evento.type == pygame.KEYDOWN:
-            movimientos += 1
-            
+
             #Para cuando se mueve la flecha hacia arriba o w
             if evento.key == pygame.K_UP and direccion[1] != 50:
                 direccion = [0,-50]
@@ -111,6 +110,7 @@ while True:
     #MOVIMIENTO SERPIENTES
     cuerpo.append([cuerpo[-1][0] + direccion[0], cuerpo[-1][1] + direccion[1]])
     cuerpo.pop(0)
+    movimientos += 1
 
     # Dibuja el cuerpo con rectangulos con las coordenadas de la lista cuerpo
     for i in range(len(cuerpo)-1):
@@ -129,7 +129,7 @@ while True:
         aparecemanzana = False
         movimientos=0
     
-
+    
     if movimientos == salirmanzana:
         movimientos=0
         aparecemanzana = True
@@ -137,7 +137,8 @@ while True:
     #     posicionarManzana()
     #     aparecemanzana = True
     #     movimientos=0
-        
+
+    print(movimientos)    
     #Colisiones
     if cuerpo[-1][0] < 0 or cuerpo[-1][0] >= ancho:
         gameover()
