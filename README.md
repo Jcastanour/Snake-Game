@@ -30,7 +30,16 @@ El jugador pierde si la serpiente colisiona con su cuerpo o una pared.
 - Aplicar lógica de colisiones y generación aleatoria controlada.
 - Practicar control de eventos, temporizadores y renderizado básico en Python.
 
-## Cómo ejecutar
+## Ejecución del juego
+
+### Requisitos previos
+Asegúrate de tener instalado **Python 3.8 o superior** y la librería `pygame`.
+
+```bash
+pip install pygame
+```
+
+### Cómo ejecutar
 
 1. Clona este repositorio:
 ```bash
