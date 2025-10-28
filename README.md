@@ -40,11 +40,11 @@ cd Snake-Game
 
 2. Ejecuta la versión que desees:
 ```bash
-python snake1.py
+python SnakeGame.py
 ```
 o
 ```bash
-python snake2.py
+python SnakeGame2.0.py
 ```
 
 ## Tablero
