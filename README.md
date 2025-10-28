@@ -1,4 +1,7 @@
-# Snake-Game - Equipo 7 
+# 🐍 Snake Game
+
+**Proyecto académico desarrollado para aplicar los conocimientos de la materia Estructura de Datos.
+**
 
 Existen 2 ejecutables.
 
